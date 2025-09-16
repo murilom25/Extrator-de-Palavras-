@@ -8,7 +8,7 @@ function mostrapalavraschave() {
     const camporesultado = document.querySelector("#resultado-palavrachave");
     const palavraChave = processaTexto(texto);
     
-    camporesultado.textcontent = palavras;
+    camporesultado.textcontent = palavras.join(", ");
     }
     function processaTexto(texto) {
         let palavras = texto.split(/\p{l}+/u);
