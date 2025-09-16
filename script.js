@@ -1,14 +1,16 @@
 
-const botaomostrapalavras = document.query cselector ("#botao-palavrachave"); 
+const botaomostrapalavras = document.queryselector ("#botao-palavrachave"); 
 
 botaomostrapalavras.addeventlistener("click", mostrapalavraschave);
 
 function mostrapalavraschave() {
     const texto = document.querySelector("#entrada-de-texto#").Value;
-
-    const camporesdultado = document.querySelector("#resultado-palavrachave");
-
-    const palavras = texto.split(" ");
+    const camporesultado = document.querySelector("#resultado-palavrachave");
+    const palavraChave = processaTexto(texto);
     
     camporesultado.textcontent = palavras;
+    }
+    function processaTexto(texto) {
+        let palavras = texto.split(/\p{l}+/u);
+        return palavras;
     }
