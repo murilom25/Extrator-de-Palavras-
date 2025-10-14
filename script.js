@@ -1,8 +1,3 @@
-
-STHEFANI APARECIDA DE PAULA <paula.sthefani@escola.pr.gov.br>
-09:24 (há 0 minuto)
-para mim
-
 const botaoMostraPalavras = document.querySelector( "#botao-paçavrachave");
 
 botaoMostraPalavras.addEventListener( " click", mostraPalavrasChave);
@@ -14,10 +9,17 @@ function mostraPalavrasChave(){
 
     campoResultado.textoContent = palavras.join(","); 
 }    
-
+💡
 function processaTexto(texto) {
     let palavras = texto.split(/\P{L}+/u);
-    const frequencias = contaFrequencias(palavras);
+
+     for (let i of palavras) {
+         palavras[i] = palavras[i].tolowercase();
+     }
+     
+     palavras = tirapalavrasruins(palavras);
+
+     const frequencias = contaFrequencias(palavras);
     let ordenadas = Object.keys(frequencias).sort(ordenaPalavras);
 
     function ordenaPalavras(p1, p2){
@@ -27,16 +29,27 @@ function processaTexto(texto) {
     console.log(ordenadas);
     return ordenadas.slice(0,10);
 }
+💡
 function contaFrequencias(palavras){
     let frequencias = {};
-    for (let i of palavras) {
+    
         frequencias [i] =0; 
     for(let j of palavras){
         if(i==j) {
             frequencias[i]++;
         }
-        }
+      }
     }
     return palavras;
 }
-
+💡
+function tirapalavrasruins(palavras) {
+    const PALAVRAS_RUINS = new setInterval(["para", "uma", "nós"]);
+    const palavrasboas = [];
+    for (let palavra of palavras) {
+        if (!PALAVRAS_RUINS.has(palavra) && palavra.length > 2) {
+            palavrasboas.push(palavras);
+        }
+    }
+    return palavrasboas;
+}
