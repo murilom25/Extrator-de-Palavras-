@@ -1,4 +1,5 @@
 import { PALAVRAS_RUINS } from "./palavrasRuins.js"
+
 const botaoMostraPalavras = document.querySelector( "#botao-paçavrachave");
 
 botaoMostraPalavras.addEventListener( " click", mostraPalavrasChave);
@@ -26,7 +27,6 @@ function processaTexto(texto) {
         return frequencias[p2] - frequencias[p1];
     }
 
-    console.log(ordenadas);
     return ordenadas.slice(0,10);
 }
 💡
